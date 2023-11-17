@@ -8,6 +8,6 @@ defmodule Day1 do
 
 end
 
-file_name = "ex-input-day1.txt"
-#file_name = "ex-test-day1.txt"
+file_name = "input-day1.txt"
+#file_name = "test-day1.txt"
 Day1.load_file(file_name)
