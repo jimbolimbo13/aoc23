@@ -4,6 +4,11 @@ defmodule Day1 do
   def load_file(f_name) do
     file_lines = String.split(File.read!(f_name), "\n\n")
 
+    #part1 =
+    #part2 =
+
+    #IO.puts("DayXXX part1: #{part1}")
+    #IO.puts("DayXXX part2: #{part2}")
   end
 
 end
