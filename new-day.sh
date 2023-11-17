@@ -9,7 +9,7 @@ else
 fi
 
 mkdir -p "day$today"
-cp template/dayXXX.esx "day$today/day$today.esx"
+cp template/dayXXX.exs "day$today/day$today.exs"
 touch "day$today/test-day"$today".txt"
 touch "day$today/input-day"$today".txt"
 
