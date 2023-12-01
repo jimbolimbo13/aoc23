@@ -8,13 +8,11 @@ defmodule Day1 do
     second_int = Enum.map(file_lines, &find_last_num/1 )
 
 
-    totals = Enum.zip_with(first_int, second_int, fn x,y -> concat_ints(x,y) end)
-    #Enum.map(totals, &IO.puts/1)
-    part1 = Enum.reduce(totals, 0, fn x, acc -> x + acc end)
+    part1 = Enum.zip_with(first_int, second_int, fn x,y -> concat_ints(x,y) end)
+      |> Enum.reduce(0, fn x, acc -> x + acc end)
 
-    totals2 = Enum.map(file_lines, &search_regex/1)
-    # Enum.map(totals2, &IO.puts/1)
-    part2 = Enum.reduce(totals2, 0, fn x, acc -> x + acc end)
+    part2 = Enum.map(file_lines, &search_regex/1)
+      |> Enum.reduce(0, fn x, acc -> x + acc end)
 
     IO.puts("Part1: #{part1}")
     IO.puts("Part2: #{part2}")
@@ -45,14 +43,9 @@ defmodule Day1 do
   end
 
   def search_regex(line) do
-    # IO.puts(line)
-    # all_ints = Regex.scan(~r/\d|one|two|three|four|five|six|seven|eight|nine/, line)
-    # |> List.flatten()
     first_int = Regex.run(~r/\d|one|two|three|four|five|six|seven|eight|nine/, line)
     last_int = Regex.run(~r/\d|enin|thgie|neves|xis|evif|ruof|eerht|owt|eno/, String.reverse(line) )
 
-    # IO.puts(List.first(all_ints))
-    # IO.puts(List.last(all_ints))
     first = case Integer.parse(List.first(first_int)) do
               {int, _} -> int
               :error -> str_to_int(List.first(first_int))
@@ -61,7 +54,6 @@ defmodule Day1 do
               {int, _} -> int
               :error -> str_to_int(String.reverse(List.first(last_int)))
             end
-    # IO.puts(concat_ints(first,last))
     concat_ints(first,last)
   end
 
